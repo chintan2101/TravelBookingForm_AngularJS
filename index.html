@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+		  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+
+	<style type="text/css">
+  form.tab-form-demo .tab-pane {
+    margin: 20px 20px;
+  }
+  .full button span {
+    background-color: limegreen;
+    border-radius: 32px;
+    color: black;
+  }
+  .partially button span {
+    background-color: orange;
+    border-radius: 32px;
+    color: black;
+  }
+
+  select {
+  font-family: Cursive;
+}
+
+</style>
+
+</head>
+<body ng-app="myApp">
+	<center>
+		<div ng-controller="mainController">
+
+  <form name="outerForm" class="tab-form-demo">
+    <uib-tabset active="active">
+      <uib-tab index="0" heading="Step 1" >
+        <ng-form name="nestedForm">
+          <div class="form-group" style="width:500px">
+            <label>First Name</label>
+            <input type="text" class="form-control" required ng-model="fname"/>
+                <label>Last Name</label>
+            <input type="text" class="form-control" required ng-model="lname"/>
+                <label>Email Name</label>
+            <input type="text" class="form-control" required ng-model="email"/>
+                <label>Phone</label>
+            <input type="text" class="form-control" required ng-model="phone"/>
+                <br>
+  
+          </div>
+        </ng-form>
+      </uib-tab>
+    <uib-tab index=" 1" heading="Step 2" disable="disabled">
+    <div style="width:500px">
+    	
+  <label>Location</label><br>
+
+      <select name="drpdown" ng-model="dvalue" style="width:200px">
+      <option value="Boston">Boston</option>
+      <option value="New York">New York</option>
+      <option value="Los Angeles">Los Angeles</option>
+      <option value="San Fransisco">San Fransisco</option>
+
+    </select>
+
+
+
+
+    </div>
+<br>
+
+
+			<div  style="width:500px">
+
+				<label>Date Depart</label>
+				<br>
+
+				<p class="input-group">
+					<input type="text" class="form-control" uib-datepicker-popup="{{format1}}" ng-model="dt1" is-open="popup11.opened" datepicker-options="dateOptions1" ng-required="true" close-text="Close" alt-input-formats="altInputFormats1" />
+					<span class="input-group-btn">
+						<button type="button" class="btn btn-default" ng-click="open11()"><i class="glyphicon glyphicon-calendar"></i></button>
+					</span>
+				</p>
+         {{dt1 | date:'fullDate' }}
+
+			</div>
+			<br>
+
+
+			<div style="width:500px">
+				
+				<label>Date Return</label>
+				<br>
+				
+				<p class="input-group">
+					<input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+					<span class="input-group-btn">
+						<button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+					</span>
+				</p>
+         {{dt | date:'fullDate' }}
+			</div>
+
+  </uib-tab>
+
+        <uib-tab index="2" heading="Step 3" disable="disabled1">
+
+
+        <div style="width:700px">
+
+        <h2>
+       <a href="#"> {{fname}} {{lname}} </a>({{phone}}) will
+        </h2>
+
+        <h2 >
+        <div > 
+        depart for <span style="color:grey">{{dvalue}}</span> on <span style="color:#006080">       {{dt1 | date:'fullDate' }}
+</span>
+        
+        </div></h2>
+
+           <h2>
+        <div > 
+        and return from on <span style="color:#006080"> {{dt | date:'fullDate' }}
+        </span>
+        
+        </div></h2>
+
+
+
+        </div>
+
+
+    </uib-tab>
+    </uib-tabset>
+  </form>
+
+        <button type="button" class="btn btn-default btn-sm" ng-click="hidebtn();active = 1" ng-show="stepstatus">Next</button>
+
+         <button type="button" class="btn btn-default btn-sm" ng-click="hidebtn2();active = 2" ng-show="step2status">Next</button>
+
+
+
+		</div>
+
+	</center>
+
+<script type="text/javascript">
+	
+
+
+
+
+</script>
+
+
+
+	
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+<script src="app.js"></script>
+<script src="bootstrap.js"></script>
+  <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.3.3.js"></script>
+  
+<script src="ui-bootstrap-tpls-1.3.3.min.js"></script>
+</body>
+
+
+
+
+</html>
+
